@@ -3,7 +3,7 @@ when i started studying **back-end** with [nodejs](https://www.google.com/url?sa
 
 My philosophy in computer science is to level up in abstraction form bottom to the top, meaning do not learn [React](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://react.dev/&ved=2ahUKEwi4r9v9u6OMAxX_gf0HHdYCLUoQFnoECA4QAQ&usg=AOvVaw1tEjYYiD7LQlxO53dgjTHV) before mastering basic web technologies (HTML, CSS, JavaScript). while most back-end tutorial in [nodejs](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://nodejs.org/en&ved=2ahUKEwizzuGLuqOMAxVz9LsIHcmBOoAQFnoECAkQAQ&usg=AOvVaw1dFXYHr5kNGMvANfSjX4lC) do the Opposite . 
 
-so i tried to learn by my own with **docs** for networks , back-end  and  [nodejs api](https://nodejs.org/docs/latest/api/)  , and also some tutorial on YouTube or blogs .
+so i tried to learn by my own with **docs** for networks , back-end  and  [nodejs api](https://nodejs.org/docs/latest/api/)  , also some tutorial on YouTube or blogs .
 
 in this repo i wanted to create a simple **http-server** that serve static website for simple usage and to build on top of it (don't reinvent the wheel) with simple functions without using any  **npm packages** , and to be for learning purposes .
 
