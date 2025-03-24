@@ -13,13 +13,19 @@ async function GET_REQ(req,res,rootDir) {
     if (isFileExist) {
       resFilePath = rootDir + REQ_URL;
       res.statusCode = 200;
-    } else if(REQ_URL === "/") {
+    } else if(REQ_URL === "/" && await fsModules.isFileExistAsync(rootDir + "/index.html")) {
         resFilePath = rootDir + "/index.html";
         res.statusCode = 200;
     }
     else{
-      resFilePath = rootDir + "/404.html";
-      res.statusCode = 404;
+      if (await  fsModules.isFileExistAsync(rootDir + "/404.html")){
+        resFilePath = rootDir + "/404.html";
+        res.statusCode = 404;  
+      }else{
+        res.end("404 not found");
+        return;
+      }
+      
     }
 
     const { MIME } = getFileInfo(resFilePath);

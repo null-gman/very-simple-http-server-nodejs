@@ -9,8 +9,8 @@ const HostInfo = {ip : undefined , port :undefined};
 HostInfo.ip = getIpv4();
 HostInfo.port = 80;
 
-/* to use the crunt working directory as root folder use (-root "./" )*/
-const RootDir = getFlages["root"] ?? "./frontEnd" ;
+/* to use the crunt working directory as root folder use (-root "." )*/
+const RootDir = getFlages["root"] === "./" ? "." : getFlages["root"] ?? "./frontEnd" ;
 
 
 
