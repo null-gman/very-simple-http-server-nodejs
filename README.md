@@ -14,6 +14,8 @@ in this repo i wanted to create a simple **http-server** that serve static websi
 2. create the website folder like the `/frontEnd`  to be the root for all your pages .
 3. Run: `npm main.js` This will automatically look for a folder named `frontEnd` in the current working directory. If this is not the case, use the `-root` flag to specify a different directory.  
 > Pass `-root .` to serve the current directory as the website root.
+>
+> if you passed a invalid path the server will crash .
 ## issues may you run into
 1. This is in **GNU/Linux**, and to solve it, use `sudo`. If you're on Windows, run the terminal you use as an administrator.
 ![image](https://github.com/user-attachments/assets/47b3067a-bc3f-4917-a152-a6317196693b)
