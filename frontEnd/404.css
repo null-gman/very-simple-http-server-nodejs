@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+html,body{
+    min-height: 100svh;
+    background-color: rgb(148, 180, 77);
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    width: fit-content;
+}
