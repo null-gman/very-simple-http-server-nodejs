@@ -13,7 +13,7 @@ in this repo i wanted to create a simple **http-server** that serve static websi
 1. you have  [nodejs](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://nodejs.org/en&ved=2ahUKEwizzuGLuqOMAxVz9LsIHcmBOoAQFnoECAkQAQ&usg=AOvVaw1dFXYHr5kNGMvANfSjX4lC) already !!
 2. create the website folder like the `/frontEnd`  to be the root for all your pages .
 3. Run: `npm main.js` This will automatically look for a folder named `frontEnd` in the current working directory. If this is not the case, use the `-root` flag to specify a different directory.  
-> Pass `-root ./` to serve the current directory as the website root.
+> Pass `-root .` to serve the current directory as the website root.
 ## issues may you run into
 1. This is in **GNU/Linux**, and to solve it, use `sudo`. If you're on Windows, run the terminal you use as an administrator.
 ![image](https://github.com/user-attachments/assets/47b3067a-bc3f-4917-a152-a6317196693b)
