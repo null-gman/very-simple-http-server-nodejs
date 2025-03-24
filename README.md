@@ -15,5 +15,16 @@ in this repo i wanted to create a simple **http-server** that serve static websi
 3. Run: `npm main.js` This will automatically look for a folder named `frontEnd` in the current working directory. If this is not the case, use the `-root` flag to specify a different directory.  
 > Pass `-root ./` to serve the current directory as the website root.
 ## issues may you run into
-1. This is in **GNU/Linux**, and to solve it, use `sudo`. If you're on Windows, run the terminal you use as an administrator.  
+1. This is in **GNU/Linux**, and to solve it, use `sudo`. If you're on Windows, run the terminal you use as an administrator.
+![image](https://github.com/user-attachments/assets/47b3067a-bc3f-4917-a152-a6317196693b)
+
 2. This error message means that the port you're using for the server on your IPv4 (port 80) is already in use. To solve it, close the other service that is using that port or change the port the server uses in `/main.js`.
+![image](https://github.com/user-attachments/assets/d2252a99-95bd-42d9-aab2-e64b0ab11728)
+
+**in main.js**
+```js
+const HostInfo = {ip : undefined , port :undefined};
+HostInfo.ip = getIpv4();
+HostInfo.port = 80; /*change the port number and check if it free*/
+```
+
