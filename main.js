@@ -1,9 +1,10 @@
 const http = require("node:http");
+
 const  getIpv4 = require("./src/networkModules/getIpv4");
 const  getFlages = require("./src/utils/getFlages.js");
 const GET_REQ = require("./src/requestMethodes/GET_REQ.js");
-
 const color = require("./src/utils/color.js");
+
 const HostInfo = {ip : undefined , port :undefined};
 HostInfo.ip = getIpv4();
 HostInfo.port = 80;
@@ -17,7 +18,9 @@ function server() {
     const Server = http.createServer((req,res)=>{
 
         console.log(
-            "> Data:"+color.green( new Date().toISOString() ) + " | url: " +  color.green(req.url) + " | "+"method: "  +color.green(req.method)
+            "> " +  "Data: "    + color.green(new Date().toISOString()) + " | "+
+                    "method: "  + color.green(req.method)               + " | "+
+                    "url: "     + color.green(req.url) 
         );
         
         switch (req.method) {
@@ -31,7 +34,7 @@ function server() {
     })
 
     Server.listen(
-        HostInfo.port,HostInfo.ip,
+        HostInfo.port , HostInfo.ip ,
         ()=>console.log(
             "server listen on : " +color.yellow(`http://${HostInfo.ip+":"+HostInfo.port}\n`)
         )
@@ -39,10 +42,7 @@ function server() {
 }
 
 function main() {
-    
-
-    server()
-    
+    server(); /*thats it :) */
 }
 
 main()
