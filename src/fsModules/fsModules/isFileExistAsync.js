@@ -5,6 +5,8 @@ const fs = require("node:fs");
 
 
 function isFileExistAsync(dir = "" ,filePath = "") {
+  console.log(dir ,"-", filePath);
+  
   if (dir === "" || filePath === "") throw new Error("can't be empty");
   
   
