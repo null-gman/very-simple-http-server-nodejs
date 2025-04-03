@@ -2,7 +2,7 @@ const fs = require("node:fs");
 
 function writeFileAsync(fileDir = "", content = "") {
   return new Promise((resolve) => {
-    fs.writeFileSync(fileDir, content, function (err) {
+    fs.writeFile(fileDir, content, function (err) {
       if (err) {
         resolve(false);
         return;
