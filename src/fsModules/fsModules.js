@@ -5,7 +5,7 @@ const isFileExistAsync = require("./fsModules/isFileExistAsync.js");
 const appendFileAsync = require("./fsModules/appendFileAsync.js");
 const readStreamAsync = require("./fsModules/readStreamAsync.js");
 const writeStream = require("./fsModules/writeStream.js");
-const getFileSizeBytes = require("./fsModules/getFileSizeBytes.js");
+const getFileSizeBytesAsync = require("./fsModules/getFileSizeBytesAsync.js");
 const readDirAsync = require("./fsModules/readDirAsync.js");
 const writeFileAsync = require("./fsModules/writeFileAsync.js");
 
@@ -18,7 +18,7 @@ const FS_MODULES = {
   appendFileAsync,
   readStreamAsync,
   writeStream,
-  getFileSizeBytes,
+  getFileSizeBytesAsync,
   readDirAsync,
   writeFileAsync,
 }
