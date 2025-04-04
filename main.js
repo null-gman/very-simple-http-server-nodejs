@@ -11,7 +11,8 @@ const RootDir = getFlages["root"] === "./" ? "." : getFlages["root"] ?? "./front
 
 
 function server() {
-
+    console.log(RootDir);
+    
     const HostInfo = {ip : undefined , port :undefined};
     HostInfo.ip = getIpv4();
     HostInfo.port = 80;
