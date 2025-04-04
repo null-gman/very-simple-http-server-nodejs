@@ -1,6 +1,6 @@
-const fsModules = require("../fsModules/fsModules.js");
-const  setMIMEtype = require("../utils/setMIME")
-const utils = require("../utils/utils.js")
+const fsModules = require("../../fsModules/fsModules.js");
+const  setMIMEtype = require("../../utils/setMIME.js")
+const utils = require("../../utils/utils.js")
 
 
 

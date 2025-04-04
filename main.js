@@ -2,7 +2,7 @@ const http = require("node:http");
 
 const  getIpv4 = require("./src/networkModules/getIpv4");
 const  getFlages = require("./src/utils/getFlages.js");
-const GET_REQ = require("./src/requestMethodes/GET_REQ.js");
+const GET_REQ = require("./src/requestMethodes/GET_REQ/GET_REQ.js");
 const color = require("./src/utils/color.js");
 
 const HostInfo = {ip : undefined , port :undefined};
