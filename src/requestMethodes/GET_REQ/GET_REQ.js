@@ -1,39 +1,21 @@
 const fsModules = require("../../fsModules/fsModules.js");
 const  setMIMEtype = require("../../utils/setMIME.js")
 const utils = require("../../utils/utils.js")
-
+const path = require("node:path");
 
 
 /*
   i use this function to get the file the requsted and it path 
 
-*
-/
-// getDirAndFileNameFromFileFullPath("/folder/folder/folder/folder/") /* gives bug */
-function getDirAndFileNameFromFileFullPath(filePath)
-{ 
-  const pathArray = utils.removeValueFromArray(filePath.split("/"),"");
-  let file = "",dir = "";
-
-  if(pathArray.length === 0)
-    return ["/",""];
-  else if(pathArray.length === 1)
-    return ["/",pathArray[0]];
-
-  for (let index = 0; index < pathArray.length - 1; index++) 
-    dir += "/" + pathArray[index];
-  
-  
-  file = pathArray.at(-1);
-  return [dir,file];
-}
+*/
 
 async function GET_REQ(req,res,rootDir) {
     if (!req | !res | !rootDir) throw new Error("can't be null");
 
+    const reqFile = path.basename(req.url);
+    const reqPath = path.dirname(req.url);
 
-    const [reqPath,reqFile] = getDirAndFileNameFromFileFullPath(req.url);
-
+    
     const REQ_URL = req.url;
     let resFilePath = "";
   
@@ -42,7 +24,7 @@ async function GET_REQ(req,res,rootDir) {
         resFilePath = rootDir + "/index.html";
         res.statusCode = 200;
       }
-    else if( await fsModules.isFileExistAsync(rootDir +"/"+reqPath, reqFile)){
+    else if( await fsModules.isFileExistAsync(path.join(rootDir,reqPath),reqFile)){
       resFilePath = rootDir + req.url;
       res.statusCode = 200;
     }
