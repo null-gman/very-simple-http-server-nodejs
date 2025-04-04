@@ -4,14 +4,15 @@ const fs = require("node:fs");
 
 
 
+
 function isFileExistAsync(dir = "" ,filePath = "") {  
-  if (dir === "" || filePath === "") throw new Error("can't be empty");
   return new Promise((resolve) => {
+    if (dir === "" || filePath === "") resolve(false);
     fs.readdir(dir, (err,files_subDires) => {
       if (err) {
-        resolve(-1);
+        resolve(false)
       }
-      resolve(files_subDires.indexOf(filePath) != -1 )
+      resolve(files_subDires?.indexOf?.(filePath) != -1 )
     })
   })
 }
