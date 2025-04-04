@@ -5,16 +5,17 @@ const  getFlages = require("./src/utils/getFlages.js");
 const GET_REQ = require("./src/requestMethodes/GET_REQ/GET_REQ.js");
 const color = require("./src/utils/color.js");
 
-const HostInfo = {ip : undefined , port :undefined};
-HostInfo.ip = getIpv4();
-HostInfo.port = 80;
-
 /* to use the crunt working directory as root folder use (-root "." )*/
 const RootDir = getFlages["root"] === "./" ? "." : getFlages["root"] ?? "./frontEnd" ;
 
 
 
 function server() {
+
+    const HostInfo = {ip : undefined , port :undefined};
+    HostInfo.ip = getIpv4();
+    HostInfo.port = 80;
+
     const Server = http.createServer((req,res)=>{
 
         console.log(
