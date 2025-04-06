@@ -5,14 +5,20 @@ const  getFlages = require("./src/utils/getFlages.js");
 const GET_REQ = require("./src/requestMethodes/GET_REQ/GET_REQ.js");
 const color = require("./src/utils/color.js");
 
-/* to use the crunt working directory as root folder use (-root "." )*/
-const RootDir = getFlages["root"] === "./" ? "." : getFlages["root"] ?? "./frontEnd" ;
+
 
 
 
 function server() {
-    console.log(RootDir);
     
+    /* to use the crunt working directory as root folder use (-root "." )*/
+    const RootDir = getFlages["root"] === "./" ? "." : getFlages["root"] ?? "./frontEnd" ;
+
+    
+    console.log(   "website root path :",color.yellow(RootDir) ,
+                    color.gray("(if start with './' or without '/' means 'from current working directory')")
+                );
+
     const HostInfo = {ip : undefined , port :undefined};
     HostInfo.ip = getIpv4();
     HostInfo.port = 80;
@@ -43,8 +49,6 @@ function server() {
     )
 }
 
-function main() {
-    server(); /*thats it :) */
-}
 
-main()
+
+server(); 
