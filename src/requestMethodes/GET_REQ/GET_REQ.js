@@ -1,8 +1,9 @@
-const fsModules = require("../../fsModules/fsModules.js");
-const  setMIMEtype = require("../../utils/setMIME.js")
-const utils = require("../../utils/utils.js")
 const path = require("node:path");
 
+const setMIMEtype = require("../../utils/setMIME.js")
+const fsModules = require("../../fsModules/fsModules.js");
+const setHttpHeaders = require("./setHttpHeaders.js");
+const handel_404 = require("./handel_404.js");
 
 /*
   i use this function to get the file the requsted and it path 
@@ -11,46 +12,38 @@ const path = require("node:path");
 async function GET_REQ(req,res,rootDir) {
     if (!req | !res | !rootDir) throw new Error("can't be null");
 
-    const reqFile = path.basename(req.url);
-    const reqPath = path.dirname(req.url);
-
-    
+    const  fileDir = path.dirname(req.url);
+    const fileName = path.basename(req.url);
+    const FullRootFolePathName = path.join(rootDir,fileDir,fileName);
     /* abslote path for the file that will be responsed */
     let resFilePath = "";
-    console.log("req.url : ",req.url);
+  
+
     
 
-    if(req.url === "/" && await fsModules.isFileExistAsync(rootDir , "index.html")) {
+    if(req.url === "/" && await fsModules.isFileExistAsync(path.join(rootDir , "index.html"))) {
         resFilePath = path.join( rootDir , "index.html");
         res.statusCode = 200;
       }
-    else if( await fsModules.isFileExistAsync(path.join(rootDir,reqPath),reqFile)){
-        resFilePath = path.join(rootDir , req.url);
+    else if( await fsModules.isFileExistAsync(FullRootFolePathName)){
+        resFilePath = FullRootFolePathName;
         res.statusCode = 200;
     }
     else{
-      res.statusCode = 404;  
-      if (await fsModules.isFileExistAsync(rootDir , "404.html")){
-        resFilePath = path.join(rootDir , "404.html");
-      }else{
-        res.end("404 not found");
-        return; /* no header needed */
-      } 
+      handel_404(req,res,rootDir,["","404.html"]);
+      return;
     }
+
     
-    setHttpHeaders(res,resFilePath);
-
+    const MIME = setMIMEtype(path.basename(resFilePath));
+    const FileSize = await fsModules.getFileSizeBytesAsync(resFilePath);
+    
+    setHttpHeaders(res,{  "Content-Length":FileSize,
+                          "content-type": MIME      
+                        });
     await fsModules.readStreamAsync(resFilePath, (chunck) => res.write(chunck));
-
     res.end();
 }
   
-
-async function setHttpHeaders(resObj,resFilePath) {
-  const MIME = setMIMEtype(path.basename(resFilePath));
-  const FileSize = await fsModules.getFileSizeBytesAsync(resFilePath);
-  resObj.setHeader("Content-Length", FileSize);
-  resObj.setHeader("content-type", MIME); 
-}
 
 module.exports = GET_REQ;
