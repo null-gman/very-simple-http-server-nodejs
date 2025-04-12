@@ -26,7 +26,7 @@ in this repo i wanted to create a simple **http-server** that serve static websi
 **in main.js**
 ```js
 const HostInfo = {ip : undefined , port :undefined};
-HostInfo.ip = getIpv4();
+HostInfo.ip = getIpv4(); /*you can change the host to localhost(127.0.0.1) insted ipv4*/
 HostInfo.port = 80; /*change the port number and check if it free*/
 ```
 
