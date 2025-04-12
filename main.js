@@ -23,8 +23,13 @@ function server() {
     HostInfo.ip = getIpv4();
     HostInfo.port = 80;
 
-    const Server = http.createServer((req,res)=>{
+    if(!HostInfo.ip){
+        console.log(color.red("error with geting ipv4 ."));
+        process.exit();
+    }
 
+
+    const Server = http.createServer((req,res)=>{
         console.log(
             "> " +  "Data: "    + color.green(new Date().toISOString()) + " | "+
                     "method: "  + color.green(req.method)               + " | "+
