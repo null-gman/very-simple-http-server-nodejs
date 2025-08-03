@@ -1,5 +1,5 @@
 {
-  "name": "httpserver",
+  "name": "http-server",
   "version": "1.0.0",
   "description": "nodejs http server ready to host your website localy ,or for learning purposes (no express js) all in nodejs apis . ",
   "main": "./main.js",
