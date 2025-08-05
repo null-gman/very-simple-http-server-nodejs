@@ -1,41 +1,19 @@
-/* # getFlgaes.js :
-1. get the process.argv flages like : "-name null" and put them in object key:value .
-2. example :{name:"null",... : "..."}
-3. export : the flages object
+const CommandLineArgs = require("command-line-args");
 
-*/
-function getFlages() {
-  const ARGV = [...process.argv] ;
-  const ARGV_LEN = ARGV.length;
-  const FlagesObj = {};
-
-  let flageKey = "";
-  let flageValue = "";
-
-  for (let index = 0; index < ARGV_LEN; index++) {
-    if ( ARGV[index][0] !== '-') {
-      continue;
-    }
-    if (! ARGV[index + 1]) {
-      continue;
-    }
-    if (ARGV[index + 1][0] === '-') {
-      continue;
-    }
-
-    flageKey = String(ARGV[index]).slice(1); /*remove "-" from the flage key */
-    flageKey = flageKey.toLocaleLowerCase(); /*no case sensitivity flages */
-
-    flageValue = ARGV[index + 1];
-
-    FlagesObj[flageKey] = flageValue;
+const optionDefinitions = [
+  {
+    name: "root", alias: "r", type: String,defaultValue:""
+  },
+  {
+    name: "ip", alias: "i", type: String, defaultValue: "localhost"
+  },
+  {
+    name: "port", alias: "p", type: Number, defaultValue:8080
   }
 
-  return FlagesObj;
-}
+];
 
+const options = CommandLineArgs(optionDefinitions, { partial: true });
+delete options._unknown;
 
-
-
-const FLAGES_OBJ = getFlages();
-module.exports = FLAGES_OBJ;
+module.exports = options;

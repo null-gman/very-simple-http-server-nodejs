@@ -11,6 +11,7 @@ const GreenColor = "\x1b[38;2;0;205;205m";
 const GrayColor = "\x1b[38;2;70;70;70m";
 
 
+//function constractor
 function creatColorMethod(color) {
   return function(string = ""){
     return color+string+ResetColor;

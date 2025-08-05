@@ -1,23 +1,25 @@
 {
   "name": "http-server",
-  "version": "1.0.0",
-  "description": "nodejs http server ready to host your website localy ,or for learning purposes (no express js) all in nodejs apis . ",
-  "main": "./main.js",
+  "version": "2.0.0",
+  "description": "nodejs http server ready to host your website localy, or for learning purposes (no express js) all in nodejs apis . ",
+  "main": "main.js",
   "type": "commonjs",
+
   "scripts": {
-    "start": "node ./main.js",
-    "nodemon": "nodemon ./main.js"
+    "dev": "nodemon ./main.js"
   },
   "keywords": [
     "http",
-    "server",
-    "nodejs",
-    "javascript",
-    "no framework"
+    "server"
   ],
   "author": "https://github.com/null-gman",
   "license": "GPL-3.0-only",
+
   "devDependencies": {
     "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "command-line-args": "^6.0.1",
+    "mime-types": "^3.0.1"
   }
 }

@@ -1,0 +1,32 @@
+simple static web server .
+
+command flages:
+    --root
+    --port
+    --ipv4
+
+
+libs:
+    "command-line-args": "^6.0.1",
+    "mime-types": "^3.0.1"
+
+
+end point:
+    GET only
+    serve static content
+
+
+How the server work
+- get root , ip and ip
+- start the server
+- lestien
+
+response
+- not get
+    - done
+- check file
+- handel
+    - file size and mime
+- create hedaers
+- set status
+- start a steram send data
